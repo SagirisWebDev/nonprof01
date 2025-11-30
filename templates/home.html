@@ -1,0 +1,55 @@
+<!-- wp:template-part {"slug":"header","theme":"spiritwestuc","tagName":"header"} /-->
+
+<!-- wp:group {"className":"notices"} -->
+<div class="wp-block-group notices"><!-- wp:paragraph {"className":"covid"} -->
+  <p class="covid"><a href="http://localhost:10008/covid/" data-type="page" data-id="202">COVID-19</a></p>
+  <!-- /wp:paragraph -->
+  
+  <!-- wp:paragraph {"className":"live-stream"} -->
+  <p class="live-stream">LIVE STREAM</p>
+  <!-- /wp:paragraph --></div>
+  <!-- /wp:group -->
+  
+  <!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"textColor":"background","className":"page-heading text-shadow sermons-heading"} -->
+  <h2 class="has-text-align-center page-heading text-shadow sermons-heading has-background-color has-text-color" style="font-style:normal;font-weight:600">Sermons</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:spacer {"height":"1em","className":"sermons-heading"} -->
+  <div style="height:1em" aria-hidden="true" class="wp-block-spacer sermons-heading"></div>
+  <!-- /wp:spacer -->
+  
+  <!-- wp:query {"queryId":4,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"tagName":"main","displayLayout":{"type":"list"},"layout":{"inherit":true}} -->
+  <main class="wp-block-query"><!-- wp:post-template {"align":"wide"} -->
+  <!-- wp:group {"layout":{"inherit":true,"type":"constrained"}} -->
+  <div class="wp-block-group"><!-- wp:post-title {"isLink":true,"align":"wide","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"post-title","fontSize":"var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dtypography\u002d\u002dfont-size\u002d\u002dhuge, clamp(2.25rem, 4vw, 2.75rem))"} /-->
+  
+  <!-- wp:post-featured-image {"isLink":true,"align":"wide","style":{"spacing":{"margin":{"top":"calc(1.75 * var(\u002d\u002dwp\u002d\u002dstyle\u002d\u002dblock-gap))"}}},"className":"post-feature-image"} /-->
+  
+  <!-- wp:columns {"align":"wide"} -->
+  <div class="wp-block-columns alignwide"><!-- wp:column {"width":"100%"} -->
+  <div class="wp-block-column" style="flex-basis:100%"><!-- wp:post-excerpt {"className":"post-excerpt content"} /-->
+  
+  <!-- wp:post-date {"format":"F j, Y","isLink":true,"style":{"typography":{"fontStyle":"italic","fontWeight":"400"}},"className":"post-date content","fontSize":"small"} /--></div>
+  <!-- /wp:column -->
+  
+  <!-- wp:column {"width":""} -->
+  <div class="wp-block-column"></div>
+  <!-- /wp:column --></div>
+  <!-- /wp:columns -->
+  
+  <!-- wp:spacer {"height":"1em"} -->
+  <div style="height:1em" aria-hidden="true" class="wp-block-spacer"></div>
+  <!-- /wp:spacer --></div>
+  <!-- /wp:group -->
+  <!-- /wp:post-template -->
+  
+  <!-- wp:query-pagination {"paginationArrow":"arrow","align":"wide","layout":{"type":"flex","justifyContent":"space-between"}} -->
+  <!-- wp:query-pagination-previous {"fontSize":"small"} /-->
+  
+  <!-- wp:query-pagination-numbers /-->
+  
+  <!-- wp:query-pagination-next {"fontSize":"small"} /-->
+  <!-- /wp:query-pagination --></main>
+  <!-- /wp:query -->
+  
+  <!-- wp:template-part {"slug":"footer","theme":"spiritwestuc","tagName":"footer"} /-->

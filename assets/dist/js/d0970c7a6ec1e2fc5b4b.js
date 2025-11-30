@@ -1,0 +1,2 @@
+document.getElementById("tec-calendar-main").onload=function(){var e=this.contentWindow.document.querySelector("html");e&&(e.style.backgroundImage="none")};
+//# sourceMappingURL=d0970c7a6ec1e2fc5b4b.js.map

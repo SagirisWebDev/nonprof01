@@ -1,0 +1,41 @@
+/* Tablet Formatting */
+@media (min-width: 768px) {
+
+  /* Display Photos other than Pictures and Rentals Page */
+	.desktop-photo {
+		display: block;
+		box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+	}
+
+	.desktop-photo-spacer {
+		display: block;
+	}
+
+	.choir-photo{
+		width: fit-content;
+		margin-inline: 10vw;
+	}
+
+  .youth-photo, .sunday-school-photo {
+
+    > img {
+      width: 100%;
+    }
+  }
+	// .youth-photo > img,
+	// .sunday-school-photo > img {
+	// 	width: 100%;
+	// }
+
+	.contact-us-photo {
+		margin-block-end: 2rem;
+	}
+
+	/* Change Pictures Photos to Row with Wrap */
+	.photo {
+		flex-direction: row;
+		gap: 2rem;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}

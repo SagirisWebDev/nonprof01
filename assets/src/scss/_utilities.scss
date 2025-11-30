@@ -1,0 +1,25 @@
+.zoom {
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.75);
+  }
+}
+
+.zoom-right {
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.75);
+    translate: 50%;
+  }
+}
+
+.zoom-left {
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.75);
+    translate: -50%;
+  }
+}

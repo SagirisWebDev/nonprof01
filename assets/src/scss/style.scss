@@ -1,0 +1,23 @@
+/*
+Theme Name: Spirit West UC
+Theme URI: https://spiritwestuc.ca
+Author: Sagiris Web Development
+Author URI: https://sagirisdev.ca
+Description: Custom theme for Spirit West United Church
+Requires at least: 5.9
+Tested up to: 5.9
+Requires PHP: 5.6
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: spiritwestuc
+Tags: 
+
+Spirit West UC  WordPress Theme, (C) 2021 Sagris Web Development
+Spirit West UC is distributed under the terms of the GNU GPL.
+*/
+@charset "UTF-8";
+@use "utilities";
+@use "mobile";
+@use "tablet";
+@use "desktop";

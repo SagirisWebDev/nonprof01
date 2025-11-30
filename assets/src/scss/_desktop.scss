@@ -1,0 +1,325 @@
+/* Desktop Formatting */
+@media (min-width: 1024px) {
+
+  /* Change to Landscape Background */
+	html {
+		background: url('../images/spirit-west-background5.webp') no-repeat center center / cover fixed padding-box;
+	}
+
+	/* Header Formatting */
+	.site-title {
+		display: none;
+	}
+
+	/* display desktop header */
+
+  /* hover on navbar to display vertically aligned link */
+  .wp-block-navigation,
+  .wp-block-navigation-item,
+  .wp-block-navigation__responsive-close,
+  .wp-block-navigation__responsive-container-content,
+  .wp-block-navigation__responsive-dialog,
+  .wp-block-navigation__container {
+    height: 100%;
+  }
+
+	.wp-block-navigation__responsive-container {
+		display: block;
+		width: 100%;
+    height: inherit;
+		position: relative;
+		z-index: auto;
+	}
+	
+	nav {
+		width: 100%;
+	}
+
+	/* Remove hamburger menu and close button */
+	.wp-block-navigation__responsive-container-close,
+	.wp-block-navigation__responsive-container-open {
+		display: none;
+    height: inherit;
+	}
+
+	.wp-block-navigation__container {
+		justify-content: space-around;
+	}
+
+
+	.wp-block-navigation-item__content {
+		font-size: 0.9rem;
+		font-weight: 400;
+    height: inherit;
+
+    &:hover {
+      color: var(--wp--preset--color--background);
+    }
+	}
+
+  .wp-block-navigation-item__label {
+    display: inline-block;
+    margin-top: 1em;
+  }
+
+  /* Set dropdown menus to right alignment on menu button */
+  .wp-block-navigation.items-justified-right {
+
+    .wp-block-navigation__container {
+
+      .has-child {
+
+        .wp-block-navigation__submenu-container {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  /* hover zoom on anchor tags that trigger dropdown menus */
+  .wp-block-navigation-submenu {
+    & > .wp-block-navigation-item__content {
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.75);
+      }
+    }
+
+  }
+
+  .submenu-item {
+
+    a {
+      justify-content: center;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  .home-submenu, .activities-submenu {
+
+    > a {
+
+      &::after {
+        font-size: 0.6rem;
+      }
+    }
+  }
+
+	/* Heading Formatting */
+	.page-heading {
+		font-size: var(--wp--custom--typography--font-size--colossal);
+	}
+
+	.page-subheading,
+	.worship-subheading {
+		font-size: var(--wp--custom--typography--font-size--gigantic);
+		display: flex;
+		gap: 0.5rem;
+		justify-content: center;
+	}
+
+  /* Post Feature Images */
+  .post-feature-image {
+    display: block;
+    max-width: 800px;
+    margin: auto;
+    margin-block: 1em;
+
+    > img {
+      box-shadow: 0.5px 0.5px 3.5px rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  /* Welcome Page */
+  .home {
+
+    > .wp-site-blocks {
+
+      > .notices, > main, > footer {
+        position: relative;
+        top: 65vh;
+      }
+    }
+
+    .header-desktop-landing {
+      width: 100vw;
+      background-color: transparent;
+      padding-inline: 1em;
+
+      &.scrolled {
+        background-color: #eeeeef;
+      }
+    }
+
+    .wp-block-navigation-item {
+
+      > .whiteLinks-desktop-landing {
+        color: var(--wp--preset--color--background);
+
+        &::after {
+          color: var(--wp--preset--color--background);
+        }
+
+        &:hover, &:focus {
+          @extend %LandingNavLinkFocus;
+
+          &::after {
+            @extend %LandingNavLinkFocus;
+          }
+        }
+
+        > span {
+          color: inherit;
+
+          &:hover, &:focus {
+            color: inherit;
+          }
+        }
+      }
+    }
+
+    .wp-block-navigation-item__content {
+
+      > span {
+
+        &:hover {
+          color: inherit;
+          background-color: inherit;
+        }
+      }
+    }
+
+    #desktop-title-container {
+      margin-left: 10vw;
+      margin-top: 8vh;
+      opacity: 0%;
+      height: 30vh;
+      padding-right: 2rem;
+      animation: titleDropIn 1.5s .75s 1 normal;
+    }
+
+    .title-desktop-landing {
+      color: var(--wp--preset--color--background);
+      text-align: end;
+      font-size: 6vw;
+
+      > span {
+        font-weight: 700;
+      }
+
+      &:nth-child(even) {
+
+        > span {
+          text-align: end;
+        }
+      }
+    }
+
+    .arrow-desktop-landing {
+      position: absolute;
+      cursor: pointer;
+      opacity: 0%;
+      bottom: 5vh;
+      left: 47.6vw;
+      width: 6.4rem;
+      height: 6.4rem;
+      border-radius: 100px;
+      background-color: rgba(196, 196, 196, 0.45);
+      animation: arrowDropIn 2.2s 1.5s 1 normal;
+    }
+  }
+  
+  .wp-block-navigation-item {
+
+    > .blackLinks-desktop-landing {
+      color: var(--wp--preset--color--foreground);
+
+      &::after {
+        color: var(--wp--preset--color--foreground);
+      }
+
+      &:hover, &:focus {
+        color: var(--wp--preset--color--background);
+        background-color: var(--wp--preset--color--sub-heading);
+
+        &::after {
+          color: var(--wp--preset--color--background);
+          background-color: var(--wp--preset--color--sub-heading);
+        }
+      }
+
+      > span {
+        color: inherit;
+
+        &:hover, &:focus {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  .link-focus {
+    @extend %LandingNavLinkFocus;
+  }
+
+	%LandingNavLinkFocus {
+    color: #2c88d9;
+		background-color: var(--wp--preset--color--background);
+  }
+
+  /* Landing Page Animations */
+	@keyframes titleDropIn {
+		from {
+			opacity: 0;
+			margin-top: 4vh;
+		}
+
+		to {
+			opacity: 100%;
+			margin-top: 8vh;
+		}
+	}
+
+	@keyframes arrowDropIn {
+		from {
+			opacity: 0%;
+			bottom: 15vh;
+		}
+
+		to {
+			opacity: 100%;
+			bottom: 5vh;
+		}
+	}
+
+	#desktop-title-container.animations-visible,
+	.arrow-desktop-landing.animations-visible {
+		opacity: 100%;
+	}
+
+	.smooth-scrolling {
+		scroll-behavior: smooth;
+		overflow-y: scroll;
+	}
+}
+
+/* Ultra Wide Formatting */
+@media (min-width: 2560px) {
+
+	/* Header */
+	.wp-block-navigation-item__label,
+	.wp-block-navigation-item__content {
+		font-size: 2rem;
+	}
+
+	.home-submenu, .activities-submenu {
+
+    > a::after {
+      font-size: 1.5rem;
+    }
+  }
+}

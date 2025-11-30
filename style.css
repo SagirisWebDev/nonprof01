@@ -1,0 +1,600 @@
+@charset "UTF-8";
+/*
+Theme Name: Spirit West UC
+Theme URI: https://spiritwestuc.ca
+Author: Sagiris Web Development
+Author URI: https://sagirisdev.ca
+Description: Custom theme for Spirit West United Church
+Requires at least: 5.9
+Tested up to: 5.9
+Requires PHP: 5.6
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: spiritwestuc
+Tags: 
+
+Spirit West UC  WordPress Theme, (C) 2021 Sagris Web Development
+Spirit West UC is distributed under the terms of the GNU GPL.
+*/
+.zoom {
+  transition: transform 0.2s;
+}
+.zoom:hover {
+  transform: scale(1.75);
+}
+
+.zoom-right {
+  transition: all 0.2s;
+}
+.zoom-right:hover {
+  transform: scale(1.75);
+  translate: 50%;
+}
+
+.zoom-left {
+  transition: all 0.2s;
+}
+.zoom-left:hover {
+  transform: scale(1.75);
+  translate: -50%;
+}
+
+* {
+  margin-block: 0;
+}
+*[class^=wp-container-] > * {
+  margin-block: 0;
+  padding-block: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: transparent;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+/*
+ * Text and navigation link styles.
+ * Necessary until the following issue is resolved in Gutenberg:
+ * https://github.com/WordPress/gutenberg/issues/27075
+ */
+a:active, a {
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration-style: dashed;
+}
+.wp-block-navigation .wp-block-navigation-item a:focus, .wp-block-navigation .wp-block-navigation-item a:hover {
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
+
+/*
+ * Alignment styles.
+ * These rules are temporary, and should not be relied on or
+ * modified too heavily by themes or plugins that build on
+ * Spirit West UC. These are meant to be a precursor to
+ * a global solution provided by the Block Editor.
+ *
+ * Relevant issues:
+ * https://github.com/WordPress/gutenberg/issues/35607
+ * https://github.com/WordPress/gutenberg/issues/35884
+ */
+.edit-post-visual-editor__post-title-wrapper,
+.wp-block-group.alignfull,
+.wp-block-group.has-background,
+.wp-block-cover.alignfull, .is-root-container .wp-block[data-align=full] > .wp-block-group, .is-root-container .wp-block[data-align=full] > .wp-block-cover, .wp-site-blocks, body > .is-root-container {
+  padding-left: var(--wp--custom--spacing--outer);
+  padding-right: var(--wp--custom--spacing--outer);
+}
+
+.is-root-container .wp-block[data-align=full], .wp-site-blocks > .wp-block-template-part > .wp-block-group.has-background, .wp-site-blocks > .wp-block-template-part > .wp-block-cover, .wp-site-blocks > .wp-block-cover, .wp-site-blocks > .wp-block-group.has-background, .wp-site-blocks .alignfull, body > .is-root-container > .wp-block-cover, body > .is-root-container > .wp.wp-block-template-part > .wp-block-group.has-background, body > .is-root-container > .wp.wp-block-template-part > .wp-block-cover {
+  margin-left: calc(-1 * var(--wp--custom--spacing--outer)) !important;
+  margin-right: calc(-1 * var(--wp--custom--spacing--outer)) !important;
+  width: unset;
+}
+
+.wp-site-blocks .wp-block-columns .wp-block-column .alignfull, .wp-site-blocks .alignfull:not(.wp-block-group) .alignfull, .is-root-container .wp-block[data-align=full] > *:not(.wp-block-group) .wp-block[data-align=full], .is-root-container .wp-block-columns .wp-block-column .wp-block[data-align=full] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: inherit;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open {
+  padding-top: var(--wp--custom--spacing--outer);
+  padding-bottom: var(--wp--custom--spacing--large);
+  padding-right: var(--wp--custom--spacing--outer);
+  padding-left: var(--wp--custom--spacing--outer);
+}
+
+/* 
+ * Background Image
+*/
+html {
+  background: url("../images/spirit-west-background-mobile.webp") no-repeat center center/cover fixed padding-box;
+}
+
+/*
+ * Hide Page Title
+*/
+.page-title {
+  display: none;
+}
+
+/* 
+ * HTML Main Formatting
+*/
+main {
+  min-height: 85.5vh;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* 
+ * Header and Footer Templates
+*/
+.header,
+.footer {
+  display: flex;
+  block-size: 3.5rem;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  justify-content: center;
+  align-content: center;
+  z-index: 9;
+}
+
+.footer {
+  justify-content: space-between;
+}
+
+.footer-title {
+  justify-self: left;
+}
+
+.footer-facebook {
+  justify-self: right;
+}
+
+/* 
+ * Covid & Live Stream Links
+*/
+.notices {
+  display: flex;
+  justify-content: space-around;
+  margin-block-start: 1.5rem;
+  padding-block-start: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  margin-bottom: -0.3px;
+}
+
+.covid,
+.live-stream {
+  display: inline-block;
+  margin-block-end: 1rem;
+  margin-block-start: 2.5rem;
+  font-weight: 900;
+  transition: transform 0.2s;
+}
+.covid a,
+.live-stream a {
+  text-decoration: none;
+}
+.covid:hover,
+.live-stream:hover {
+  transform: scale(1.75);
+}
+
+.covid a {
+  color: #cf2e2e;
+}
+
+.live-stream a {
+  color: #9b51e0;
+}
+
+/* 
+ * Welcome Page Sub-Heading
+*/
+.worship-subheading {
+  font-size: var(--wp--preset--font-size--large);
+}
+
+/* 
+ * Padding for Content
+*/
+.content {
+  padding: 1em;
+}
+
+/* 
+ * Text Drop Shadow
+*/
+.text-shadow {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.subheading-text-shadow {
+  text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5);
+}
+
+/*
+ * Hide Photos in Mobile Viewports, except Pictures Page
+*/
+.desktop-photo,
+.desktop-photo-spacer,
+.post-feature-image {
+  display: none;
+}
+
+/* 
+ * Sermons Page
+*/
+.sermons-heading {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* 
+ * Post Titles
+*/
+.post-title {
+  padding-inline-start: 0.4em;
+}
+.post-title a {
+  color: var(--wp--preset--color--post-title);
+}
+
+/* 
+ * Prayers Page
+*/
+.wpcf7-form {
+  padding: 1em;
+}
+
+.form-caption {
+  padding-inline: 1em;
+  margin-block-start: 1em;
+}
+
+.prayers-input {
+  max-width: 60vw;
+}
+
+.prayers-label {
+  display: block;
+  margin-block-start: 0.75em;
+}
+.prayers-label span {
+  color: var(--wp--preset--color--vivid-red);
+}
+
+input.prayers-submit {
+  inline-size: min(8rem, 25vw);
+  block-size: min(3rem, 10vh);
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: large;
+  color: white;
+  background-color: var(--wp--preset--color--sub-heading);
+  margin-block-start: 0.75em;
+}
+
+/* Links Page */
+.page-id-370 div.entry-content {
+  padding-inline: 1em;
+}
+
+/* Calendar Page */
+.page-id-316 div.entry-content {
+  padding-inline-end: 0.7em;
+}
+
+/* 
+ * Pictures, Rentals, Activities Page Photos
+*/
+.photo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding-inline: 1.5em;
+}
+
+/* 
+ * Mobile Nav Menu Formatting
+*/
+.wp-block-navigation-item__content {
+  font-size: 1.4rem;
+}
+
+.submenu-item span {
+  font-size: 1.125rem;
+  margin: 0.25rem;
+}
+
+.wp-block-navigation__responsive-container {
+  animation-name: slidein;
+  animation-duration: 0.2s;
+  right: 0;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
+  padding: 0.25rem 0.5rem 0 0;
+  font-weight: 400;
+}
+
+/* Dropdown Menu for Home and Activities */
+.home-submenu > a::after, .activities-submenu > a::after {
+  content: " ᐯ";
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+#modal-1-content ul.hide {
+  display: none;
+}
+
+@keyframes slidein {
+  from {
+    right: 100vw;
+  }
+  to {
+    right: 50vw;
+  }
+}
+/* Tablet Formatting */
+@media (min-width: 768px) {
+  /* Display Photos other than Pictures and Rentals Page */
+  .desktop-photo {
+    display: block;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  }
+  .desktop-photo-spacer {
+    display: block;
+  }
+  .choir-photo {
+    width: fit-content;
+    margin-inline: 10vw;
+  }
+  .youth-photo > img, .sunday-school-photo > img {
+    width: 100%;
+  }
+  .contact-us-photo {
+    margin-block-end: 2rem;
+  }
+  /* Change Pictures Photos to Row with Wrap */
+  .photo {
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+/* Desktop Formatting */
+@media (min-width: 1024px) {
+  /* Change to Landscape Background */
+  html {
+    background: url("../images/spirit-west-background5.webp") no-repeat center center/cover fixed padding-box;
+  }
+  /* Header Formatting */
+  .site-title {
+    display: none;
+  }
+  /* display desktop header */
+  /* hover on navbar to display vertically aligned link */
+  .wp-block-navigation,
+  .wp-block-navigation-item,
+  .wp-block-navigation__responsive-close,
+  .wp-block-navigation__responsive-container-content,
+  .wp-block-navigation__responsive-dialog,
+  .wp-block-navigation__container {
+    height: 100%;
+  }
+  .wp-block-navigation__responsive-container {
+    display: block;
+    width: 100%;
+    height: inherit;
+    position: relative;
+    z-index: auto;
+  }
+  nav {
+    width: 100%;
+  }
+  /* Remove hamburger menu and close button */
+  .wp-block-navigation__responsive-container-close,
+  .wp-block-navigation__responsive-container-open {
+    display: none;
+    height: inherit;
+  }
+  .wp-block-navigation__container {
+    justify-content: space-around;
+  }
+  .wp-block-navigation-item__content {
+    font-size: 0.9rem;
+    font-weight: 400;
+    height: inherit;
+  }
+  .wp-block-navigation-item__content:hover {
+    color: var(--wp--preset--color--background);
+  }
+  .wp-block-navigation-item__label {
+    display: inline-block;
+    margin-top: 1em;
+  }
+  /* Set dropdown menus to right alignment on menu button */
+  .wp-block-navigation.items-justified-right .wp-block-navigation__container .has-child .wp-block-navigation__submenu-container {
+    left: 0;
+  }
+  /* hover zoom on anchor tags that trigger dropdown menus */
+  .wp-block-navigation-submenu > .wp-block-navigation-item__content {
+    transition: transform 0.2s;
+  }
+  .wp-block-navigation-submenu > .wp-block-navigation-item__content:hover {
+    transform: scale(1.75);
+  }
+  .submenu-item a {
+    justify-content: center;
+  }
+  .submenu-item span {
+    font-size: 1rem;
+  }
+  .home-submenu > a::after, .activities-submenu > a::after {
+    font-size: 0.6rem;
+  }
+  /* Heading Formatting */
+  .page-heading {
+    font-size: var(--wp--custom--typography--font-size--colossal);
+  }
+  .page-subheading,
+  .worship-subheading {
+    font-size: var(--wp--custom--typography--font-size--gigantic);
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  /* Post Feature Images */
+  .post-feature-image {
+    display: block;
+    max-width: 800px;
+    margin: auto;
+    margin-block: 1em;
+  }
+  .post-feature-image > img {
+    box-shadow: 0.5px 0.5px 3.5px rgba(0, 0, 0, 0.75);
+  }
+  /* Welcome Page */
+  .home > .wp-site-blocks > .notices, .home > .wp-site-blocks > main, .home > .wp-site-blocks > footer {
+    position: relative;
+    top: 65vh;
+  }
+  .home .header-desktop-landing {
+    width: 100vw;
+    background-color: transparent;
+    padding-inline: 1em;
+  }
+  .home .header-desktop-landing.scrolled {
+    background-color: #eeeeef;
+  }
+  .home .wp-block-navigation-item > .whiteLinks-desktop-landing {
+    color: var(--wp--preset--color--background);
+  }
+  .home .wp-block-navigation-item > .whiteLinks-desktop-landing::after {
+    color: var(--wp--preset--color--background);
+  }
+  .home .wp-block-navigation-item > .whiteLinks-desktop-landing > span {
+    color: inherit;
+  }
+  .home .wp-block-navigation-item > .whiteLinks-desktop-landing > span:hover, .home .wp-block-navigation-item > .whiteLinks-desktop-landing > span:focus {
+    color: inherit;
+  }
+  .home .wp-block-navigation-item__content > span:hover {
+    color: inherit;
+    background-color: inherit;
+  }
+  .home #desktop-title-container {
+    margin-left: 10vw;
+    margin-top: 8vh;
+    opacity: 0%;
+    height: 30vh;
+    padding-right: 2rem;
+    animation: titleDropIn 1.5s 0.75s 1 normal;
+  }
+  .home .title-desktop-landing {
+    color: var(--wp--preset--color--background);
+    text-align: end;
+    font-size: 6vw;
+  }
+  .home .title-desktop-landing > span {
+    font-weight: 700;
+  }
+  .home .title-desktop-landing:nth-child(even) > span {
+    text-align: end;
+  }
+  .home .arrow-desktop-landing {
+    position: absolute;
+    opacity: 0%;
+    bottom: 5vh;
+    left: 47.6vw;
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: 100px;
+    background-color: rgba(196, 196, 196, 0.45);
+    animation: arrowDropIn 2.2s 1.5s 1 normal;
+  }
+  .wp-block-navigation-item > .blackLinks-desktop-landing {
+    color: var(--wp--preset--color--foreground);
+  }
+  .wp-block-navigation-item > .blackLinks-desktop-landing::after {
+    color: var(--wp--preset--color--foreground);
+  }
+  .wp-block-navigation-item > .blackLinks-desktop-landing:hover, .wp-block-navigation-item > .blackLinks-desktop-landing:focus {
+    color: var(--wp--preset--color--background);
+    background-color: var(--wp--preset--color--sub-heading);
+  }
+  .wp-block-navigation-item > .blackLinks-desktop-landing:hover::after, .wp-block-navigation-item > .blackLinks-desktop-landing:focus::after {
+    color: var(--wp--preset--color--background);
+    background-color: var(--wp--preset--color--sub-heading);
+  }
+  .wp-block-navigation-item > .blackLinks-desktop-landing > span {
+    color: inherit;
+  }
+  .wp-block-navigation-item > .blackLinks-desktop-landing > span:hover, .wp-block-navigation-item > .blackLinks-desktop-landing > span:focus {
+    color: inherit;
+  }
+  .home .wp-block-navigation-item > .whiteLinks-desktop-landing:hover, .home .wp-block-navigation-item > .whiteLinks-desktop-landing:focus, .home .wp-block-navigation-item > .whiteLinks-desktop-landing:hover::after, .home .wp-block-navigation-item > .whiteLinks-desktop-landing:focus::after, .link-focus {
+    color: #2c88d9;
+    background-color: var(--wp--preset--color--background);
+  }
+  /* Landing Page Animations */
+  @keyframes titleDropIn {
+    from {
+      opacity: 0;
+      margin-top: 4vh;
+    }
+    to {
+      opacity: 100%;
+      margin-top: 8vh;
+    }
+  }
+  @keyframes arrowDropIn {
+    from {
+      opacity: 0%;
+      bottom: 15vh;
+    }
+    to {
+      opacity: 100%;
+      bottom: 5vh;
+    }
+  }
+  #desktop-title-container.animations-visible,
+  .arrow-desktop-landing.animations-visible {
+    opacity: 100%;
+  }
+  .smooth-scrolling {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+  }
+}
+/* Ultra Wide Formatting */
+@media (min-width: 2560px) {
+  /* Header */
+  .wp-block-navigation-item__label,
+  .wp-block-navigation-item__content {
+    font-size: 2rem;
+  }
+  .home-submenu > a::after, .activities-submenu > a::after {
+    font-size: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
