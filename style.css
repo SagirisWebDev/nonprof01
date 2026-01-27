@@ -54,6 +54,7 @@ body {
   background-color: transparent;
   scrollbar-width: none;
 }
+
 body::-webkit-scrollbar {
   display: none;
 }
