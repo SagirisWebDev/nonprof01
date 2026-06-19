@@ -1,118 +1,42 @@
 <?php
-/**
- * Spirit West UC functions and definitions
- *
- * @see https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @since 1.0.0
- * @package SpiritWestUC 
- */
+declare(strict_types=1);
 
-/**
- * Register Twentytwentytwo block patterns
- */
-require get_template_directory() . '/inc/block-patterns.php';
+define('SWUC_VERSION', '2.0.0');
+define('SWUC_PATH', trailingslashit(get_stylesheet_directory()));
+define('SWUC_URL', trailingslashit(get_stylesheet_directory_uri()));
 
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * @since 1.0.0
- *
- * @return void
- */
-if ( ! function_exists( 'spiritwestuc_support' ) ) :
-	function spiritwestuc_support() {
-
-		// Add support for block styles.
-		add_theme_support( 'wp-block-styles' );
-
-		// Enqueue editor styles.
-		add_editor_style( 'style.css' );
-
-	}
-
-endif;
-
-add_action( 'after_setup_theme', 'spiritwestuc_support' );
-
-/**
- * Enqueue styles.
- *
- * @since 1.0.0
- *
- * @return void
- */
-if ( ! function_exists( 'spiritwestuc_enqueue_scripts_styles' ) ) :
-
-	function spiritwestuc_enqueue_scripts_styles() {
-		$manifest_path = get_template_directory() . '/assets/dist/manifest.json';
-		$theme_version = wp_get_theme()->get( 'Version' );
-		$version_string = is_string( $theme_version ) ? $theme_version : false;
-    if (file_exists($manifest_path)) {
-			$manifest = json_decode(file_get_contents($manifest_path), true);
-			
-			// Register cache-busting JS
-			if (!empty($manifest['main.js'])) {
-				wp_enqueue_script(
-					'spiritwestuc',
-					get_template_directory_uri() . $manifest['main.js'],
-					array(),
-					null,
-					true
-				);
-			}
-
-			// Register TEC calendar style overrides
-			if ( ! empty( $manifest[ 'calendar.js' ] ) )
-				wp_enqueue_script(
-					'spiritwestuc-tec-calendar',
-					get_template_directory_uri() . $manifest['calendar.js'],
-					array(),
-					null,
-					true
-				);
-			
-			// Register cache-busting theme stylesheet.
-			if (!empty($manifest['style.css'])) {
-				wp_enqueue_style(
-					'spiritwestuc',
-					get_template_directory_uri() . $manifest['style.css'],
-					array(),
-					null
-				);
-			}
+// Deferred to `after_setup_theme` priority 5 so the parent dynamo_theme's
+// functions.php (loaded AFTER the child's) has already required the
+// binding API by the time these calls execute.
+add_action('after_setup_theme', function(): void {
+    if (file_exists(SWUC_PATH . 'dynamo-extend-customizer.php')) {
+        require_once SWUC_PATH . 'dynamo-extend-customizer.php';
     }
-	}
-endif;
+}, 5);
 
-add_action( 'wp_enqueue_scripts', 'spiritwestuc_enqueue_scripts_styles' );
+add_action('wp_enqueue_scripts', function(): void {
+    wp_enqueue_style(
+        'swuc-overrides',
+        SWUC_URL . 'assets/css/swuc-overrides.css',
+        ['dynamo-style'],
+        SWUC_VERSION
+    );
 
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'swuc-hero',
+            SWUC_URL . 'assets/js/swuc-hero.js',
+            [],
+            SWUC_VERSION,
+            true
+        );
+    }
 
-/**
- * Override WP Global Inline Styles
- * Called by  spiritwestuc_style().
- *
- * @since 1.0.0
- *
- * @return string
- */
-if ( ! function_exists( 'spiritwestuc_inline_styles_override' ) ) :
-	function spiritwestuc_inline_styles_override() {
-		return "
-			:root :where(body) {
-				/* Remove auto white background from WP global inline style */
-				background-color: transparent;
-			}
-			@media (min-width: 1024px) {
-
-				/* Left Justify Post Title on Sermons/Posts Page */
-				[class*='wp-container-'] > .post-title {
-					max-width: 100%;
-				}
-			}	
-		";
-	}
-
-endif;
-
-wp_add_inline_style( 'spiritwestuc-style', spiritwestuc_inline_styles_override());
+    wp_enqueue_script(
+        'swuc-mobile-close',
+        SWUC_URL . 'assets/js/swuc-mobile-close.js',
+        ['dynamo-primary-nav'],
+        SWUC_VERSION,
+        true
+    );
+}, 20);
