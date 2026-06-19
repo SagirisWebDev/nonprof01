@@ -307,7 +307,8 @@ body.page .entry-title {
     .post-feature-image > img {
         box-shadow: 0.5px 0.5px 3.5px rgba(0, 0, 0, 0.75);
     }
-    .worship-subheading {
+    .worship-subheading,
+    .worship-subheading > .wp-block-group__inner-container {
         font-size: var(--dynamo-typography-h3-font-size, clamp(1.5rem, 4vw, 2.75rem));
         display: flex;
         gap: 0.5rem;
