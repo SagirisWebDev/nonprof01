@@ -28,3 +28,13 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Composer dependencies (PHPUnit runtime)
+vendor/
+.phpunit.cache/
+
+# macOS Finder noise
+.DS_Store
+
+# SWD harness — has its own embedded .git, not part of this repo
+.swd-harness/
